@@ -3,7 +3,8 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
-  base: '/',
+  // GitHub Pages serves from /Flood-Alert-VR/ — use '/' locally when not on CI
+  base: process.env.GITHUB_ACTIONS ? '/Flood-Alert-VR/' : '/',
   plugins: [
     react(),
     VitePWA({
